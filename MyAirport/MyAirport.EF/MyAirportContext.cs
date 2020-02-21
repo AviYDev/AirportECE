@@ -11,7 +11,7 @@ namespace IA.MyAirport.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServe(
+            optionsBuilder.UseSqlServer(
                 @"Server=(localdb)\mssqllocaldb;Database=Blogging;Integrated Security=True");
         }
     }
