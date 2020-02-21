@@ -28,7 +28,7 @@ namespace IA
 
                 Console.WriteLine("Querying for a blog");
                 var bgs = db.Bagages;
-                Console.WriteLine("Afficher les bagages: {0}",bgs.);
+                Console.WriteLine("Afficher les bagages: {0}",bgs);
 
             }
         
