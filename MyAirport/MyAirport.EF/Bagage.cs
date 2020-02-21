@@ -12,6 +12,7 @@ namespace IA.MyAirport.EF
         public String code_iata { get; set; }
         public DateTime date_creation { get; set; }
         public char classe { get; set; }
+
         public bool prioritaire { get; set; }
 
         public char sta { get; set; }
