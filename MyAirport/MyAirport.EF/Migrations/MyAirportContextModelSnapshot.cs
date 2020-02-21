@@ -21,12 +21,12 @@ namespace IA.MyAirport.EF.Migrations
 
             modelBuilder.Entity("IA.MyAirport.EF.Bagage", b =>
                 {
-                    b.Property<int>("BagageID")
+                    b.Property<int>("BagageId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("VolID")
+                    b.Property<int>("VolId")
                         .HasColumnType("int");
 
                     b.Property<string>("classe")
@@ -45,8 +45,8 @@ namespace IA.MyAirport.EF.Migrations
                     b.Property<string>("escale")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("prioritaire")
-                        .HasColumnType("tinyint");
+                    b.Property<bool>("prioritaire")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ssur")
                         .HasColumnType("nvarchar(max)");
@@ -55,14 +55,16 @@ namespace IA.MyAirport.EF.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
-                    b.HasKey("BagageID");
+                    b.HasKey("BagageId");
+
+                    b.HasIndex("VolId");
 
                     b.ToTable("Bagages");
                 });
 
             modelBuilder.Entity("IA.MyAirport.EF.Vol", b =>
                 {
-                    b.Property<int>("VolID")
+                    b.Property<int>("VolId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -91,9 +93,18 @@ namespace IA.MyAirport.EF.Migrations
                     b.Property<string>("pkg")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("VolID");
+                    b.HasKey("VolId");
 
                     b.ToTable("Vols");
+                });
+
+            modelBuilder.Entity("IA.MyAirport.EF.Bagage", b =>
+                {
+                    b.HasOne("IA.MyAirport.EF.Vol", "Vol")
+                        .WithMany()
+                        .HasForeignKey("VolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
