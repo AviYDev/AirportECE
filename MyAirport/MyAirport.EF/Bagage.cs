@@ -9,6 +9,18 @@ namespace IA.MyAirport.EF
         public int id_bagage { get; set; }
         public int id_vol { get; set; }
         public String code_iata { get; set; }
-        public String date_creation { get; set; }
+        public DateTime date_creation { get; set; }
+
+        public char classe { get; set; }
+        public Byte prioritaire { get; set; }
+
+        public char sta { get; set; }s
+
+        public string ssur { get; set; }
+
+        public string destination { get; set; }
+        public string escale { get; set; }
+
+
     }
 }
