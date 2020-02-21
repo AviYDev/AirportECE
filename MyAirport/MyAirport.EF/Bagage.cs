@@ -14,7 +14,7 @@ namespace IA.MyAirport.EF
         public char classe { get; set; }
         public Byte prioritaire { get; set; }
 
-        public char sta { get; set; }s
+        public char sta { get; set; }
 
         public string ssur { get; set; }
 
