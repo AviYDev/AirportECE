@@ -7,9 +7,8 @@ namespace IA.MyAirport.EF
     public class Vol
     {
         public int VolId { get; set; }
-        public int cie { get; set; }
+        public String cie { get; set; }
         public String lig { get; set; }
-        public short jex { get; set; }
         public DateTime dhc { get; set; }
         public String pkg { get; set; }
         public String imm { get; set; }

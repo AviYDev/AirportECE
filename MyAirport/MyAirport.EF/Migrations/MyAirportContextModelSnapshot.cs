@@ -26,12 +26,11 @@ namespace IA.MyAirport.EF.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("VolId")
+                    b.Property<int?>("VolId")
                         .HasColumnType("int");
 
                     b.Property<string>("classe")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("code_iata")
                         .HasColumnType("nvarchar(max)");
@@ -69,8 +68,8 @@ namespace IA.MyAirport.EF.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("cie")
-                        .HasColumnType("int");
+                    b.Property<string>("cie")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("des")
                         .HasColumnType("nvarchar(max)");
@@ -80,9 +79,6 @@ namespace IA.MyAirport.EF.Migrations
 
                     b.Property<string>("imm")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<short>("jex")
-                        .HasColumnType("smallint");
 
                     b.Property<string>("lig")
                         .HasColumnType("nvarchar(max)");
@@ -102,9 +98,7 @@ namespace IA.MyAirport.EF.Migrations
                 {
                     b.HasOne("IA.MyAirport.EF.Vol", "Vol")
                         .WithMany()
-                        .HasForeignKey("VolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VolId");
                 });
 #pragma warning restore 612, 618
         }

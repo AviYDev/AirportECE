@@ -13,9 +13,8 @@ namespace IA.MyAirport.EF.Migrations
                 {
                     VolId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    cie = table.Column<int>(nullable: false),
+                    cie = table.Column<string>(nullable: true),
                     lig = table.Column<string>(nullable: true),
-                    jex = table.Column<short>(nullable: false),
                     dhc = table.Column<DateTime>(nullable: false),
                     pkg = table.Column<string>(nullable: true),
                     imm = table.Column<string>(nullable: true),
@@ -33,10 +32,10 @@ namespace IA.MyAirport.EF.Migrations
                 {
                     BagageId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VolId = table.Column<int>(nullable: false),
+                    VolId = table.Column<int>(nullable: true),
                     code_iata = table.Column<string>(nullable: true),
                     date_creation = table.Column<DateTime>(nullable: false),
-                    classe = table.Column<string>(nullable: false),
+                    classe = table.Column<string>(nullable: true),
                     prioritaire = table.Column<bool>(nullable: false),
                     sta = table.Column<string>(nullable: false),
                     ssur = table.Column<string>(nullable: true),
@@ -51,7 +50,7 @@ namespace IA.MyAirport.EF.Migrations
                         column: x => x.VolId,
                         principalTable: "Vols",
                         principalColumn: "VolId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
