@@ -6,6 +6,11 @@ namespace IA.MyAirport.EF
 {
     public class Vol
     {
+
+        public Vol()
+        {
+            this.bagages = new HashSet<Bagage>();
+        }
         public int VolId { get; set; }
         public String cie { get; set; }
         public String lig { get; set; }
@@ -14,6 +19,10 @@ namespace IA.MyAirport.EF
         public String imm { get; set; }
         public short pax { get; set; }
         public string des { get; set; }
+
+
+        public virtual ICollection<Bagage> bagages { get; set; }
+
 
     }
 }

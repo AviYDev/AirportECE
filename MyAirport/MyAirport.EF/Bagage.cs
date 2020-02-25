@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace IA.MyAirport.EF
 {
     public class Bagage
     {
+    
         public int BagageId { get; set; }
         public int? VolId { get; set; }
         public Vol Vol { get; set; }
         public String code_iata { get; set; }
+        [Column(TypeName = "char(12)")]
         public DateTime date_creation { get; set; }
         public string classe { get; set; }
         public bool prioritaire { get; set; }

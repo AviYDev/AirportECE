@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace IA.MyAirport.EF
 {
@@ -9,10 +11,18 @@ namespace IA.MyAirport.EF
         public DbSet<Bagage> Bagages { get; set; }
         public DbSet<Vol> Vols { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MyAirportContext(DbContextOptions<MyAirportContext> options): base(options)
+        { }
+
+        public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+      
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True");
-        }
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
+            optionsBuilder.UseLoggerFactory(MyAirportLoggerFactory);
+
+        }*/
+
+  
     }
 }
