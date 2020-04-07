@@ -4,14 +4,16 @@ using IA.MyAirport.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IA.MyAirport.EF.Migrations
 {
     [DbContext(typeof(MyAirportContext))]
-    partial class MyAirportContextModelSnapshot : ModelSnapshot
+    [Migration("20200401094552_Test")]
+    partial class Test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,11 +35,11 @@ namespace IA.MyAirport.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("code_iata")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("date_creation")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("date_creation")
+                        .IsRequired()
+                        .HasColumnType("char(12)");
 
                     b.Property<string>("destination")
                         .HasColumnType("nvarchar(max)");
@@ -45,13 +47,14 @@ namespace IA.MyAirport.EF.Migrations
                     b.Property<string>("escale")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("prioritaire")
+                    b.Property<bool>("prioritaire")
                         .HasColumnType("bit");
 
                     b.Property<string>("ssur")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("sta")
+                        .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
                     b.HasKey("BagageId");
@@ -69,7 +72,6 @@ namespace IA.MyAirport.EF.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("cie")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("des")
@@ -82,10 +84,9 @@ namespace IA.MyAirport.EF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("lig")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<short?>("pax")
+                    b.Property<short>("pax")
                         .HasColumnType("smallint");
 
                     b.Property<string>("pkg")

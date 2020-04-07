@@ -39,6 +39,7 @@ namespace IA
                       pkg = "R52",
                       pax = 238
                   };
+                
                   db.Add(v1);
 
                   Console.WriteLine("Creation vol SQ333");
@@ -64,32 +65,34 @@ namespace IA
                       destination = "BEG"
                   };
                   db.Add(b1);
+
+            
                   
-                  db.SaveChanges();
+                db.SaveChanges();
                   Console.ReadLine();
 
                   // Read
-                  Console.WriteLine("Voici la liste des vols disponibles");
-                  var vol = db.Vols.OrderBy(v => v.cie);
-                  foreach (var v in vol)
+                 Console.WriteLine("Voici la liste des vols disponibles");
+                 var vol = db.Vols.OrderBy(v => v.cie);
+                 foreach (var v in vol)
                   {
                       Console.WriteLine($"Le vol {v.cie}{v.lig} N° {v.VolId} a destination de {v.des} part à {v.dhc} heure");
                   }
-                  Console.ReadLine();
+                Console.ReadLine();
                  
 
          
-                // Update
+                //// Update
                 Console.WriteLine($"Le bagage {b1.BagageId} est modifié pour être rattaché au vol {v1.VolId} => {v1.cie}{v1.lig}");
                 b1.VolId = v1.VolId;
                 db.SaveChanges();
                 Console.ReadLine();
 
-                // Delete vol et bagages du vol
-                Console.WriteLine($"Suppression du vol {v1.VolId} => {v1.cie}{v1.lig}");
-                db.Remove(v1);
-                db.SaveChanges();
-                Console.ReadLine();
+                //// Delete vol et bagages du vol
+            //    Console.WriteLine($"Suppression du vol {v1.VolId} => {v1.cie}{v1.lig}");
+             //   db.Remove(v1);
+               // db.SaveChanges();
+              //  Console.ReadLine();
             }
           
         }

@@ -15,13 +15,11 @@ namespace IA.MyAirport.EF
         public String cie { get; set; }
         public String lig { get; set; }
         public DateTime dhc { get; set; }
-        public String pkg { get; set; }
-        public String imm { get; set; }
-        public short pax { get; set; }
-        public string des { get; set; }
-
-
-        public virtual ICollection<Bagage> bagages { get; set; }
+        public String? pkg { get; set; }
+        public String? imm { get; set; }
+        public short? pax { get; set; }
+        public string? des { get; set; }
+        public virtual ICollection<Bagage>? bagages { get; set; }
 
 
     }
