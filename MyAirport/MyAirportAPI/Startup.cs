@@ -16,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
 
+
 namespace MyAirportAPI
 {
     public class Startup
@@ -32,6 +33,7 @@ namespace MyAirportAPI
         {
             services.AddDbContext<MyAirportContext>(option => option.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Trusted_Connection=True;"));
             services.AddControllers();
+
             /*    object p = services.AddControllers().AddNewtonsoftJson(o =>
                 {
                     o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -60,18 +62,17 @@ namespace MyAirportAPI
 
 
                 // Set the comments path for the Swagger JSON and UI.
-             /*   var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                System.Console.WriteLine(xmlPath);
                 c.IncludeXmlComments(xmlPath);
                 var referencedAssemblies = Assembly.GetAssembly(typeof(Startup)).GetReferencedAssemblies();
                 referencedAssemblies.ToList().ForEach(assembly =>
                 {
-                    var path = Path.Combine(AppContext.BaseDirectory, $"{assembly.Name}");
+                    var path = Path.Combine(AppContext.BaseDirectory, $"{assembly.Name}.xml");
                     if (File.Exists(path))
-                    {
                         c.IncludeXmlComments(path);
-                    }
-                });*/
+                });
             });
          
 
@@ -80,18 +81,23 @@ namespace MyAirportAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
+
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAirportApi V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+
 
             app.UseHttpsRedirection();
 

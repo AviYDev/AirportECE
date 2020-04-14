@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyAirport.EF\MyAirport.EF.csproj" />
+    <ProjectReference Include="..\MyAirportAPI\MyAirportAPI.csproj" />
   </ItemGroup>
 
 </Project>
