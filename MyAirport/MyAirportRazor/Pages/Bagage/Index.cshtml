@@ -1,0 +1,86 @@
+﻿@page
+@model MyAirportRazor.IndexModelBagage
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].code_iata)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].date_creation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].Vol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].classe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].prioritaire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].sta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].ssur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bagage[0].escale)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Bagage) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.code_iata)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_creation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vol.cie)
+                @Html.DisplayFor(modelItem => item.Vol.lig) : 
+                @Html.DisplayFor(modelItem => item.Vol.dhc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.classe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prioritaire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ssur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.escale)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BagageId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BagageId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BagageId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

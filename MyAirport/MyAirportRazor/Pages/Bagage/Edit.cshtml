@@ -1,0 +1,75 @@
+﻿@page
+@model MyAirportRazor.EditModelBagage
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Bagage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Bagage.BagageId" />
+            <div class="form-group">
+                <label asp-for="Bagage.code_iata" class="control-label"></label>
+                <input asp-for="Bagage.code_iata" class="form-control" />
+                <span asp-validation-for="Bagage.code_iata" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.date_creation" class="control-label"></label>
+                <input asp-for="Bagage.date_creation" class="form-control" />
+                <span asp-validation-for="Bagage.date_creation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.VolId" class="control-label"></label>
+                <select asp-for="Bagage.VolId" class="form-control" asp-items="ViewBag.VolId"></select>
+                <span asp-validation-for="Bagage.VolId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.classe" class="control-label"></label>
+                <input asp-for="Bagage.classe" class="form-control" />
+                <span asp-validation-for="Bagage.classe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.prioritaire" class="control-label"></label>
+                <input asp-for="Bagage.prioritaire" class="form-control" />
+                <span asp-validation-for="Bagage.prioritaire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.sta" class="control-label"></label>
+                <input asp-for="Bagage.sta" class="form-control" />
+                <span asp-validation-for="Bagage.sta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.ssur" class="control-label"></label>
+                <input asp-for="Bagage.ssur" class="form-control" />
+                <span asp-validation-for="Bagage.ssur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.destination" class="control-label"></label>
+                <input asp-for="Bagage.destination" class="form-control" />
+                <span asp-validation-for="Bagage.destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bagage.escale" class="control-label"></label>
+                <input asp-for="Bagage.escale" class="form-control" />
+                <span asp-validation-for="Bagage.escale" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,73 @@
+﻿@page
+@model MyAirportRazor.DetailsModelBagage
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bagage</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.code_iata)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.code_iata)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.date_creation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.date_creation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.Vol)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.Vol.cie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.classe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.classe)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.prioritaire)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.prioritaire)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.sta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.sta)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.ssur)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.ssur)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.destination)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.destination)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bagage.escale)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bagage.escale)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Bagage.BagageId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

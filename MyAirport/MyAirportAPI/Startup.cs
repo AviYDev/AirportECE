@@ -60,9 +60,8 @@ namespace MyAirportAPI
                    }
                 });
 
-
                 // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                /*var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 System.Console.WriteLine(xmlPath);
                 c.IncludeXmlComments(xmlPath);
@@ -72,7 +71,9 @@ namespace MyAirportAPI
                     var path = Path.Combine(AppContext.BaseDirectory, $"{assembly.Name}.xml");
                     if (File.Exists(path))
                         c.IncludeXmlComments(path);
-                });
+                });*/
+
+
             });
          
 
