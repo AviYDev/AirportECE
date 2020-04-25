@@ -11,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 using IA.MyAirport.EF;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyAirportRazor
+namespace IA.MyAirportRazor
 {
     public class Startup
     {

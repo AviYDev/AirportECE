@@ -6,7 +6,8 @@ using IA.MyAirport.EF;
 using GraphQL.Types;
 using GraphQL;
 
-namespace MyAirportGraphQL
+
+namespace IA.MyAirportGraphQL
 {
     public class AirportSchema : Schema
     {

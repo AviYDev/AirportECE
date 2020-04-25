@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using IA.MyAirport.EF;
 
-namespace MyAirportGraphQL
+namespace IA.MyAirportGraphQL
 {
     public class VolType: ObjectGraphType<Vol>
     {

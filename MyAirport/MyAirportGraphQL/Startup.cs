@@ -13,7 +13,7 @@ using IA.MyAirport.EF;
 using GraphQL.Server;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyAirportGraphQL
+namespace IA.MyAirportGraphQL
 {
     public class Startup
     {

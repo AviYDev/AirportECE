@@ -17,7 +17,7 @@ using System.Reflection;
 using System.IO;
 
 
-namespace MyAirportAPI
+namespace IA.MyAirportAPI
 {
     public class Startup
     {

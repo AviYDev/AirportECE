@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using IA.MyAirport.EF;
 using GraphQL.Types;
 
-namespace MyAirportGraphQL
+namespace IA.MyAirportGraphQL
 {
     public class AirportQuery : ObjectGraphType
     {

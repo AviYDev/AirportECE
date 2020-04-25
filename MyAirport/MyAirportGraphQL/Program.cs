@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace MyAirportGraphQL
+namespace IA.MyAirportGraphQL
 {
     public class Program
     {
